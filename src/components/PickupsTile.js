@@ -36,7 +36,18 @@ function PickupsTile({
   }
 
   function handleFavorite() {
-    addFavorite(restaurantId)
+    fetch(`http://localhost:3002/restaurants/${restaurantId}`, {
+      method: "PATCH", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ "favorited": true }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+    addFavorite(restaurantId);
   }
 
   return (

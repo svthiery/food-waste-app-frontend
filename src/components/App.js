@@ -18,6 +18,7 @@ function App() {
   const [search, setSearch] = useState("")
   const [currentUser, setCurrentUser] = useState(null)
   const [restaurantState, setRestaurantState] = useState([])
+  // const [favoritesState, setFavoritesState] = useState([])
 
 
   useEffect(() => {
@@ -47,14 +48,20 @@ const updatedItems = pickupsState.filter((pickup) => {
   return pickup.item.toLowerCase().includes(search.toLowerCase())
 })
 
-const favorites = []
+let favorites = []
 
 function addFavorite(restId) {
-  for (let i = 0; i < restaurantState.length; i++) {
-    if (restaurantState[i].id === restId) {
-      favorites.push(restaurantState[i])
-    }
-  };
+  const favoritedRests = restaurantState.filter((rest) => {
+    return rest.id === restId
+  })
+  console.log(favoritedRests)
+  // for (let i = 0; i < restaurantState.length; i++) {
+  //   if (restaurantState[i].id === restId) {
+  //     favorites.push(restaurantState[i])
+  //   }
+  // };
+  // console.log(favorites)
+  favorites = [...favorites, favoritedRests]
   console.log(favorites)
 }
 
