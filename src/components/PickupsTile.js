@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Route, useRouteMatch } from "react-router-dom";
+import React from "react";
 
 function PickupsTile({
   id,
@@ -10,6 +9,7 @@ function PickupsTile({
   restaurantId,
   image,
   makeUnavailable,
+  addFavorite
 }) {
   // const [] =
 
@@ -21,7 +21,7 @@ function PickupsTile({
 
   function handleAddItem() {
       console.log(id)
-    fetch(`http://localhost:3001/pickups/${id}`, {
+    fetch(`http://localhost:3002/pickups/${id}`, {
       method: "PATCH", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -33,6 +33,10 @@ function PickupsTile({
         console.log("Success:", data);
       })
     makeUnavailable(id);
+  }
+
+  function handleFavorite() {
+    addFavorite(restaurantId)
   }
 
   return (
@@ -54,7 +58,7 @@ function PickupsTile({
           <button disabled>Out of Stock</button>
         )}
       </div>
-      {/* <button onClick={}>{available ? 'Reserve Item' : 'unread'}</button> */}
+      <button onClick={handleFavorite}>❤️ </button>
     </div>
   );
 }

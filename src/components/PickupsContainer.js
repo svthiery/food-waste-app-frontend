@@ -1,7 +1,7 @@
 import React from 'react';
 import PickupsTile from './PickupsTile'
 
-function PickupsContainer({ pickups, makeUnavailable }) {
+function PickupsContainer({ pickups, makeUnavailable, addFavorite }) {
 
     const pickupsList = pickups.map((pickup) => {
         return <PickupsTile 
@@ -14,6 +14,7 @@ function PickupsContainer({ pickups, makeUnavailable }) {
         image={pickup.image}
         available={pickup.available}
         makeUnavailable= {makeUnavailable}
+        addFavorite={addFavorite}
         />
     })
 
