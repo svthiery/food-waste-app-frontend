@@ -17,12 +17,25 @@ function App() {
   useEffect(() => {
     fetch('http://localhost:3001/pickups')
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(pickupsArray => setPickupsState(pickupsArray));
   }, [])
+
+  function makeUnavailable(itemId) {
+    const updatedPickups = pickupsState.map((pickup) => {
+      if (pickup.id === itemId) {
+        return {...pickup, available: false}
+      } else {
+        return pickup
+      }
+    });
+    setPickupsState(updatedPickups)
+  }
+
+console.log(pickupsState)
 
 
   return (
-    <div className="App">
+    <div className="app">
       <Router>
         <Header />
         <Switch>
@@ -30,7 +43,7 @@ function App() {
             <Filter />
             <Search />
             <FavoritesContainer />
-            <PickupsContainer />
+            <PickupsContainer pickups={pickupsState} makeUnavailable={makeUnavailable}/>
           </Route>
           <Route path="/profile">
             <UserProfile />
