@@ -32,13 +32,12 @@ function UserProfile({ currentUser,  pickupsState, setPickupHistory}) {
     const mappedPickupsToUser = filteredPickupsById.map((pickup) => {
         return (
             <div>
-
+                <h3>{pickup.item}</h3>
+                <p>{pickup.price}</p>
+                <img src={pickup.image} alt={pickup.item} />
             </div>
         )
-        //h3 with the name
-        // p price
-        // p restaurant name
-        })
+    })
     
 
     
@@ -46,8 +45,7 @@ function UserProfile({ currentUser,  pickupsState, setPickupHistory}) {
         <div>
             <h1>Welcome {currentUser.username}</h1>
             <h4>Here are your past orders:</h4>
-            {/* {allPickupsById} */}
-            // comment back in later
+            {mappedPickupsToUser}
         </div>
     )
 }
