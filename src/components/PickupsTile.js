@@ -60,10 +60,10 @@ const history = useHistory();
   }
 
   return (
-    <div style={{ border: "1px dashed" }}>
+    <div className="pickup-tile">
       <h3>{item}</h3>
       <p>add restaurant name here</p>
-      <img src={image} alt={item} />
+      <img src={image} alt={item} className="food-img"/>
       <p>${price}</p>
       <div>
         {available ? (
@@ -78,7 +78,7 @@ const history = useHistory();
           <button disabled>Out of Stock</button>
         )}
       </div>
-      <button onClick={handleFavorite}>❤️ </button>
+      <button onClick={handleFavorite} className="fave-button">❤️</button>
     </div>
   );
 }

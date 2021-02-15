@@ -2,7 +2,7 @@ import React from "react";
 
 function Search({ search, setSearch, currentUser }) {
   return (
-    <div>
+    <div className="search">
       <input
         type="text"
         id="search"

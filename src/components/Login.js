@@ -35,7 +35,7 @@ function Login({ setCurrentUser }) {
 
 
   return (
-    <div>
+    <div className="login">
       <form onSubmit={handleSubmit} autoComplete="off">
         <h1>Login</h1>
         <label>Username</label>

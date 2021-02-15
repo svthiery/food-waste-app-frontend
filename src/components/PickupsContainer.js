@@ -20,13 +20,13 @@ function PickupsContainer({ pickups, makeUnavailable, addFavorite, currentUser }
     })
     const toRender = currentUser ? 
          (
-            <div>
+            <div className="pickup-container">
             {pickupsList}
         </div> 
         ) 
         : 
          (
-            <div>
+            <div className="pickup-container">
 
         </div> 
         ) 

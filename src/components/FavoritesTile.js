@@ -8,10 +8,10 @@ function FavoritesTile({ id, name, image, cuisine, subtractFavorite, currentUser
 
 
     return (
-        <div style={{ border: "1px dashed" }}>
+        <div className="fave-tile">
       <h3>{name}</h3>
       {/* <p>Restaurant Name</p> */}
-      <img src={image} alt={name} />
+      <img src={image} alt={name} className="food-img"/>
       <p>{cuisine}</p>
       
       <button onClick={handleDislike}>Remove from Favorites</button>

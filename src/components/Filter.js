@@ -2,7 +2,7 @@ import React from 'react';
 
 function Filter( { currentUser } ) {
     return (
-        <div>
+        <div className="filter">
             Dummy for Filter
         </div>
     )

@@ -4,7 +4,7 @@ import NavBar from './NavBar'
 
 function Header({ currentUser  }) {
     return (
-        <div>
+        <div className="header">
             <NavBar currentUser={currentUser}  />
         </div>
     )

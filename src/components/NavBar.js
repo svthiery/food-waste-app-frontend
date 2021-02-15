@@ -1,31 +1,29 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../assets/logo.png'
 
 function NavBar({ currentUser }) {
     return (
         <div
-          style={{
-            borderBottom: "2px solid black",
-            paddingBottom: "10px",
-            marginBottom: "12px",
-          }}
         >
-          <NavLink style={{ marginRight: "10px" }} to="/">
+          <h1>Polenta To Go Around</h1>
+
+          <NavLink to="/" className="nav-link">
             Home
           </NavLink>
         {currentUser ? (
         <>
-          <NavLink style={{ marginRight: "10px" }} to="/profile">
+          <NavLink to="/profile" className="nav-link">
             Profile
           </NavLink>
-          <button>Log Out</button>
+          <button className="logout">Log Out</button>
         </>
         ) : (
         <>
-          <NavLink style={{ marginRight: "10px" }} to="/signup">
+          <NavLink to="/signup" className="nav-link">
             Signup
           </NavLink>
-          <NavLink style={{ marginRight: "10px" }} to="/login">
+          <NavLink to="/login" className="nav-link">
           Login
           </NavLink>
         </>

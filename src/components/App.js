@@ -101,7 +101,7 @@ function addFavorite(restId) {
   return (
     <div className="app">
       <Router>
-        <Header currentUser={currentUser}  />
+        <Header currentUser={currentUser} />
         <Switch>
           <Route path="/signup">
             <SignUp />
@@ -110,11 +110,11 @@ function addFavorite(restId) {
             <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/">
-          {currentUser ? (
+          {/* {currentUser ? (
               <h1>Welcome, {currentUser.username}!</h1>
             ) : (
               <h1>Please Login or Sign Up</h1>
-            )}
+            )} */}
             <Filter currentUser={currentUser} />
             <Search search={search} setSearch={setSearch} currentUser={currentUser} />
             <FavoritesContainer favorites={favoritesState} currentUser={currentUser} />

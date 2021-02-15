@@ -7,7 +7,6 @@ function FavoritesContainer({ favorites, subtractFavorite, currentUser  }) {
 
     const allFavorites = favorites.map((fav) => {
         return <div>
-            <h3>Here is one fave</h3>
             <FavoritesTile
                 key={fav.id}
                 id={fav.id}
@@ -21,8 +20,8 @@ function FavoritesContainer({ favorites, subtractFavorite, currentUser  }) {
     })    
 
     return (
-        <div>
-            <h2>Favorites</h2>
+        <div className="favorites-container">
+            <h2 className="favorites-heading">Favorites</h2>
             {allFavorites}
         </div>
     )

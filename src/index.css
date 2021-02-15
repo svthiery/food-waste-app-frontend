@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Quicksand', sans-serif;
 }
 
 code {
@@ -13,6 +14,121 @@ code {
 }
 
 .app {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-areas:
+      "header header"
+      "search filter"
+      "favorites-container pickup-container";
+  grid-template-columns: 1fr 3fr;
+  grid-gap: 20px;
 }
+
+.pickup-container {
+  grid-area: pickup-container;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  background-color: #f5b461;
+  border-radius: 5px;
+}
+
+.pickup-tile {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 8px;
+  margin: 15px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #f3eac2;
+}
+
+
+.favorites-container {
+  grid-area: favorites-container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  text-align: center;
+  background-color: #9ad3bc;
+  border-radius: 5px;
+  margin-left: 8px;
+  height: 2000px;
+}
+
+.fave-tile {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 15px;
+  text-align:center;
+  background-color: #f3eac2;
+}
+
+.header {
+  height: 150px;
+  margin: 10px;
+  grid-area: header;
+  background-color: #f3eac2;
+  border-radius: 5px;
+}
+
+.filter {
+  height: 30px;
+  grid-area: filter;
+}
+
+.search {
+  height: 30px;
+  grid-area: search;
+  margin-left: 8px;
+}
+ .nav-link {
+   color: #ec524b;
+   font-size: 30px;
+   float: right;
+   text-decoration: none;
+   margin-right: 10px;
+   display: block;
+   }
+
+ .header h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 50px;
+  margin: 15px;
+  text-shadow: 2px 2px #f3eac2;
+ }
+
+ .fave-button {
+   margin: 5px;
+ }
+
+ .login {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+ }
+
+ .past-orders-div {
+  grid-area: favorites-container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  text-align: center;
+  background-color: #9ad3bc;
+  border-radius: 5px;
+ }
+
+ .past-order {
+  margin: 10px;
+ }
+
+ .food-img {
+   width: 160px;
+   border-radius: 5px;
+ }
+
+ .logout {
+   margin-left: 10px;
+ }
+
