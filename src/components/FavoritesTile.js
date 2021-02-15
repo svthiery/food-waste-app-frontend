@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FavoritesTile({ id, name, image, cuisine, subtractFavorite }) {
+function FavoritesTile({ id, name, image, cuisine, subtractFavorite, currentUser }) {
     
     function handleDislike() {
         subtractFavorite(id)
@@ -14,7 +14,7 @@ function FavoritesTile({ id, name, image, cuisine, subtractFavorite }) {
       <img src={image} alt={name} />
       <p>{cuisine}</p>
       
-      <button onClick={handleDislike}>❤️ </button>
+      <button onClick={handleDislike}>Remove from Favorites</button>
     </div>
     )
 }

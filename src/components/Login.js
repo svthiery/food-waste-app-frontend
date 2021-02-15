@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Login({ setCurrentUser }) {
   const [formData, setFormData] = useState({
@@ -6,15 +7,18 @@ function Login({ setCurrentUser }) {
     password: "",
   });
 
+  const history = useHistory();
+
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   }
+
 
   function handleSubmit(e) {
     e.preventDefault();
     // TODO: login the user
     // POST /login
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:3002/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,8 +29,10 @@ function Login({ setCurrentUser }) {
       .then((user) => {
         // use the response to set state
         setCurrentUser(user);
-      });
+        history.push("/");
+      }); 
   }
+
 
   return (
     <div>

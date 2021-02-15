@@ -1,7 +1,7 @@
 import React from 'react';
 import FavoritesTile from './FavoritesTile';
 
-function FavoritesContainer({ favorites, subtractFavorite }) {
+function FavoritesContainer({ favorites, subtractFavorite, currentUser  }) {
 
     // console.log(favorites)
 
@@ -15,6 +15,7 @@ function FavoritesContainer({ favorites, subtractFavorite }) {
                 cuisine={fav.name}
                 image={fav.image}
                 subtractFavorite={subtractFavorite}
+                currentUser={currentUser} 
             />
          </div>
     })    

@@ -2,10 +2,10 @@ import React from 'react';
 import NavBar from './NavBar'
 
 
-function Header() {
+function Header({ currentUser  }) {
     return (
         <div>
-            Dummy for Header
+            <NavBar currentUser={currentUser}  />
         </div>
     )
 }

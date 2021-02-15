@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function PickupsTile({
   id,
@@ -9,15 +10,22 @@ function PickupsTile({
   restaurantId,
   image,
   makeUnavailable,
-  addFavorite
+  addFavorite,
+  currentUser
 }) {
-  // const [] =
+//   const [restaurantsInPickupTile, setRestaurantsInPickupTile] = useState([])
 
-  // useEffect(() => {
-  //     fetch('http://localhost:3001/restauraunts')
-  //       .then(response => response.json())
-  //       .then(pickupsArray => setPickupsState(pickupsArray));
-  //   }, [])
+//   useEffect(() => {
+//       fetch('http://localhost:3002/restaurants')
+//         .then(response => response.json())
+//         .then(restaurants => setRestaurantsInPickupTile(restaurants));
+//     }, [])
+  
+//     let filteredRestaurants = restaurantsInPickupTile.filter((rest) => {
+//         return rest.id === restaurantId
+//  })
+     
+const history = useHistory();
 
   function handleAddItem() {
       console.log(id)
@@ -26,13 +34,14 @@ function PickupsTile({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ "available": false }),
+      body: JSON.stringify({ "available": false, "user_id": currentUser.id }),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
       })
     makeUnavailable(id);
+    history.push("/profile");
   }
 
   function handleFavorite() {
@@ -53,7 +62,7 @@ function PickupsTile({
   return (
     <div style={{ border: "1px dashed" }}>
       <h3>{item}</h3>
-      <p>Restaurant Name</p>
+      <p>add restaurant name here</p>
       <img src={image} alt={item} />
       <p>${price}</p>
       <div>

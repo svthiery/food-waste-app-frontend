@@ -1,7 +1,7 @@
 import React from 'react';
 import PickupsTile from './PickupsTile'
 
-function PickupsContainer({ pickups, makeUnavailable, addFavorite }) {
+function PickupsContainer({ pickups, makeUnavailable, addFavorite, currentUser }) {
 
     const pickupsList = pickups.map((pickup) => {
         return <PickupsTile 
@@ -15,14 +15,31 @@ function PickupsContainer({ pickups, makeUnavailable, addFavorite }) {
         available={pickup.available}
         makeUnavailable= {makeUnavailable}
         addFavorite={addFavorite}
+        currentUser={currentUser} 
         />
     })
-
-    return (
-        <div>
+    const toRender = currentUser ? 
+         (
+            <div>
             {pickupsList}
-        </div>
-    )
-}
+        </div> 
+        ) 
+        : 
+         (
+            <div>
+
+        </div> 
+        ) 
+        
+        return toRender
+    }
+    // return (
+    //     {currentUser ? 
+    //     (<div>
+    //         {pickupsList}
+    //     </div> ) : 
+    //     <div></div>
+    //     }
+    
 
 export default PickupsContainer;

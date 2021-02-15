@@ -1,6 +1,6 @@
 import React from "react";
 
-function Search({ search, setSearch }) {
+function Search({ search, setSearch, currentUser }) {
   return (
     <div>
       <input
