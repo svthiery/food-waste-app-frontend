@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 function PickupsTile({
@@ -15,17 +15,7 @@ function PickupsTile({
   restaurantName, 
   pickupCuisine
 }) {
-//   const [restaurantsInPickupTile, setRestaurantsInPickupTile] = useState([])
 
-//   useEffect(() => {
-//       fetch('http://localhost:3002/restaurants')
-//         .then(response => response.json())
-//         .then(restaurants => setRestaurantsInPickupTile(restaurants));
-//     }, [])
-  
-//     let filteredRestaurants = restaurantsInPickupTile.filter((rest) => {
-//         return rest.id === restaurantId
-//  })
      
 const history = useHistory();
 
@@ -43,8 +33,6 @@ const history = useHistory();
         makeUnavailable(id);
         history.push("/profile");
       })
-      // makeUnavailable(id);
-      // history.push("/profile");
   }
 
   function handleFavorite() {

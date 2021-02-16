@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from '../assets/logo.png'
 import { useHistory } from "react-router-dom";
 
 function NavBar({ currentUser, resetCurrentUser }) {

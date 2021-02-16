@@ -1,9 +1,5 @@
-// import logo from './logo.svg';
-// import '../App.css';
-
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
 import Header from "./Header";
 import UserProfile from './UserProfile';
 import FavoritesContainer from "./FavoritesContainer";
@@ -43,49 +39,11 @@ function App() {
     fetch('http://localhost:3002/pickups')
       .then(response => response.json())
       .then(pickupsArray => {
-        // pickupsArray.forEach((pickup) => {
-        //   restaurantState.forEach((restaurant) => {
-        //     if (restaurant.id === pickup.restaurant_id) {
-        //       // pickup = {...pickup, restaurant: restaurant.name}
-        //       pickup.restaurantName = restaurant.name
-        //       // console.log(pickup)
-        //       // console.log(pickupsArray)
-        //     }
-        //   })
-        // })
-        // // console.log(newArray)
-        
         setPickupsState(pickupsArray)
-        // console.log(pickupsArray)
       });
   }, [])
 
-  // useEffect(() => {
-  //   const pickupsWithRests = pickupsState.forEach((pickup) => {
-  //     restaurantState.forEach((restaurant) => {
-  //       if (restaurant.id === pickup.restaurant_id) {
-  //         pickup = {...pickup, restaurant: restaurant.name}
-  //         console.log(pickup)
-  //       }
-  //     })
-  //   });
-  //   setPickupsState(pickupsWithRests)
-  // }, [pickupsState, restaurantState])
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3002/pickups')
-  //     .then(response => response.json())
-  //     .then(pickupsArray => {
-  //       pickupsArray.forEach((pickup) => {
-  //         restaurantState.forEach((restaurant) => {
-  //           if (restaurant.id === pickup.restaurant_id) {
-  //             console.log(restaurant.id, pickup.restaurant.id)
-  //           }
-  //         })
-  //       })
-  //       setPickupsState(pickupsArray)
-  //     });
-  // }, [])
 
   function makeUnavailable(itemId) {
     const updatedPickups = pickupsState.map((pickup) => {
@@ -109,21 +67,13 @@ function App() {
     setPickupsState(updatedPickups)
   }
  
-// function addToPickups(itemId) {
-//   const newPickup = pickupsState.forEach(pickup => {
-//     if (pickup.id === itemId) {
-//       return pickup
-//     }
-//   })
-//   newPickup.user_id = 1
-//   console.log(newPickup)
-// }
+
 
 const updatedItems = pickupsState.filter((pickup) => {
   return pickup.item.toLowerCase().includes(search.toLowerCase())
 })
 
-// let favorites = []
+
 
 function addFavorite(restId) {
   const favoritedRest = restaurantState.filter((rest) => {
@@ -131,27 +81,9 @@ function addFavorite(restId) {
   })
   const newFavorites = [...favoritesState, favoritedRest[0]]
   setFavoritesState(newFavorites)
-  console.log(favoritedRest)
-  console.log(newFavorites)
-  // for (let i = 0; i < restaurantState.length; i++) {
-  //   if (restaurantState[i].id === restId) {
-  //     favorites.push(restaurantState[i])
-  //   }
-  // };
-  // console.log(favorites)
-  // favorites = [...favorites, favoritedRests]
-  // console.log(favorites)
 }
 
 
-
-// function subtractFavorite(restId) {
-//   for (let i = 0; i < favorites.length; i++) {
-//     if (favorites[i].id === restId) {
-//       favorites.splice(i, 1)
-//     }
-//   };
-// }
 
 
   return (
@@ -166,11 +98,6 @@ function addFavorite(restId) {
             <Login setCurrentUser={setCurrentUser} />
           </Route>
           <Route exact path="/">
-          {/* {currentUser ? (
-              <h1>Welcome, {currentUser.username}!</h1>
-            ) : (
-              <h1>Please Login or Sign Up</h1>
-            )} */}
             <Filter currentUser={currentUser} handleCategoryChange={handleCategoryChange} selectedCategory={selectedCategory} />
             <Search search={search} setSearch={setSearch} currentUser={currentUser} />
             <FavoritesContainer favorites={favoritesState} currentUser={currentUser} />

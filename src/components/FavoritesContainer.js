@@ -3,7 +3,6 @@ import FavoritesTile from './FavoritesTile';
 
 function FavoritesContainer({ favorites, subtractFavorite, currentUser  }) {
 
-    // console.log(favorites)
 
     const allFavorites = favorites.map((fav) => {
         return <div>
