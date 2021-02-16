@@ -1,33 +1,27 @@
 import React from 'react';
 import UserProfileForm from './UserProfileForm';
 
-function UserProfile({ currentUser,  pickupsState, setPickupHistory}) {
+function UserProfile({ currentUser,  pickupsState, setPickupHistory, handleDeletePickup}) {
     const filteredPickupsById = pickupsState.filter((pickup) => {
         return pickup.user_id === currentUser.id
-        // console.log(currentUser.id)
-      })
-      console.log(filteredPickupsById)
-    // const allPickupsById = filteredPickupsById.map((pickup) => {
-    //     return (
-        // return <PickupsTile 
-        // key={pickup.id}
-        // id={pickup.id}
-        // item={pickup.item}
-        // price={pickup.price}
-        // userId={pickup.user_id}
-        // restaurantId={pickup.restaurant_id}
-        // image={pickup.image}
-        // makeUnavailable= {makeUnavailable}
-        // addFavorite={addFavorite}
-        // currentUser={currentUser} 
-        // />
-    //     <div>
-    //         <h3>{pickup.item}</h3>
-    //         {/* <h3>{pickup.item}</h3> */}
-    //         <p>$ {pickup.price}</p>
-    //     </div>
-    //     );
-    // })
+    })
+
+    function onDeletePickup(pickupId) {
+        console.log(pickupId)
+        fetch(`http://localhost:3002/pickups/${pickupId}`, {
+            method: "PATCH", 
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ "available": true, "user_id": null }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+              handleDeletePickup(pickupId);
+            })
+    }
+
 
     const mappedPickupsToUser = filteredPickupsById.map((pickup) => {
         return (
@@ -35,18 +29,18 @@ function UserProfile({ currentUser,  pickupsState, setPickupHistory}) {
                 <h3>{pickup.item}</h3>
                 <p>${pickup.price}</p>
                 <img src={pickup.image} alt={pickup.item} className="food-img"/>
+                <button onClick={() => onDeletePickup(pickup.id)}>Delete Reservation</button>
             </div>
         )
     })
     
-
     
     return (
         <div>
             <h1>Welcome {currentUser.username}</h1>
             <h4>Here are your past orders:</h4>
             <div className="past-orders-div">
-            {mappedPickupsToUser}
+                {mappedPickupsToUser}
             </div>
         </div>
     )

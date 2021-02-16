@@ -6,7 +6,7 @@ function Search({ search, setSearch, currentUser }) {
       <input
         type="text"
         id="search"
-        placeholder="Search for a Restaurant"
+        placeholder="Search for an Item"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />

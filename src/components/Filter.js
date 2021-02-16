@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Filter( { currentUser } ) {
+function Filter( { currentUser, handleCategoryChange, selectedCategory } ) {
+    
+
     return (
         <div className="filter">
-            Dummy for Filter
+        <select name="filter" onChange={handleCategoryChange}>
+          <option value=''>Filter by Cuisine</option>
+          <option value="Japanese">Japanese</option>
+          <option value="Burgers">Burgers</option>
+          <option value="Bar">Bar</option>
+          <option value="French">French</option>
+          <option value="Ramen">Ramen</option>
+          <option value="Vegan">Vegan</option>
+          <option value="Bakery">Bakery</option>
+        </select>
+
         </div>
     )
 }

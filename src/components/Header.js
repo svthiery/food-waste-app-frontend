@@ -2,10 +2,10 @@ import React from 'react';
 import NavBar from './NavBar'
 
 
-function Header({ currentUser  }) {
+function Header({ currentUser, resetCurrentUser  }) {
     return (
         <div className="header">
-            <NavBar currentUser={currentUser}  />
+            <NavBar currentUser={currentUser} resetCurrentUser={resetCurrentUser} />
         </div>
     )
 }

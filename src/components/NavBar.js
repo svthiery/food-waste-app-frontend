@@ -1,8 +1,17 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logo.png'
+import { useHistory } from "react-router-dom";
 
-function NavBar({ currentUser }) {
+function NavBar({ currentUser, resetCurrentUser }) {
+
+    const history = useHistory();
+
+    function handleLogout() {
+      resetCurrentUser(null)
+      history.push("/");
+    }
+
     return (
         <div
         >
@@ -16,7 +25,7 @@ function NavBar({ currentUser }) {
           <NavLink to="/profile" className="nav-link">
             Profile
           </NavLink>
-          <button className="logout">Log Out</button>
+          <button className="logout" onClick={handleLogout}>Log Out</button>
         </>
         ) : (
         <>

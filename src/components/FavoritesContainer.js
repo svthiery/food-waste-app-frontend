@@ -11,7 +11,7 @@ function FavoritesContainer({ favorites, subtractFavorite, currentUser  }) {
                 key={fav.id}
                 id={fav.id}
                 name={fav.name}
-                cuisine={fav.name}
+                cuisine={fav.cuisine}
                 image={fav.image}
                 subtractFavorite={subtractFavorite}
                 currentUser={currentUser} 

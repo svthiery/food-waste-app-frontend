@@ -11,7 +11,9 @@ function PickupsTile({
   image,
   makeUnavailable,
   addFavorite,
-  currentUser
+  currentUser,
+  restaurantName, 
+  pickupCuisine
 }) {
 //   const [restaurantsInPickupTile, setRestaurantsInPickupTile] = useState([])
 
@@ -28,7 +30,6 @@ function PickupsTile({
 const history = useHistory();
 
   function handleAddItem() {
-      console.log(id)
     fetch(`http://localhost:3002/pickups/${id}`, {
       method: "PATCH", // or 'PUT'
       headers: {
@@ -39,9 +40,11 @@ const history = useHistory();
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
+        makeUnavailable(id);
+        history.push("/profile");
       })
-    makeUnavailable(id);
-    history.push("/profile");
+      // makeUnavailable(id);
+      // history.push("/profile");
   }
 
   function handleFavorite() {
@@ -62,7 +65,8 @@ const history = useHistory();
   return (
     <div className="pickup-tile">
       <h3>{item}</h3>
-      <p>add restaurant name here</p>
+      <p>{restaurantName}</p>
+      <p>{pickupCuisine}</p>
       <img src={image} alt={item} className="food-img"/>
       <p>${price}</p>
       <div>

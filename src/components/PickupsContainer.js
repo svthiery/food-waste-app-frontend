@@ -1,9 +1,13 @@
 import React from 'react';
 import PickupsTile from './PickupsTile'
 
-function PickupsContainer({ pickups, makeUnavailable, addFavorite, currentUser }) {
+function PickupsContainer({ pickups, makeUnavailable, addFavorite, currentUser, selectedCategory }) {
 
-    const pickupsList = pickups.map((pickup) => {
+    const filteredByCuisine = pickups.filter((pickup) => {
+        return pickup.pickup_cuisine.includes(selectedCategory)
+    })
+
+    const pickupsList = filteredByCuisine.map((pickup) => {
         return <PickupsTile 
         key={pickup.id}
         id={pickup.id}
@@ -14,6 +18,8 @@ function PickupsContainer({ pickups, makeUnavailable, addFavorite, currentUser }
         image={pickup.image}
         available={pickup.available}
         makeUnavailable= {makeUnavailable}
+        restaurantName={pickup.restaurant_name}
+        pickupCuisine={pickup.pickup_cuisine}
         addFavorite={addFavorite}
         currentUser={currentUser} 
         />
@@ -33,13 +39,6 @@ function PickupsContainer({ pickups, makeUnavailable, addFavorite, currentUser }
         
         return toRender
     }
-    // return (
-    //     {currentUser ? 
-    //     (<div>
-    //         {pickupsList}
-    //     </div> ) : 
-    //     <div></div>
-    //     }
     
 
 export default PickupsContainer;
