@@ -32,8 +32,8 @@ function PickupsContainer({ pickups, makeUnavailable, addFavorite, currentUser, 
         ) 
         : 
          (
-            <div className="pickup-container">
-
+            <div >
+                <h2>Please log in or sign up!</h2>
         </div> 
         ) 
         

@@ -52,7 +52,7 @@ function Login({ setCurrentUser }) {
           value={formData.password}
           onChange={handleChange}
         />
-        <input type="submit" value="Login" />
+        <input className="login-btn" type="submit" value="Login" />
       </form>
     </div>
   );

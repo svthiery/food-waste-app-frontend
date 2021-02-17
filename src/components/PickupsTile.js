@@ -67,7 +67,7 @@ const history = useHistory();
             Reserve Item
           </button>
         ) : (
-          <button className="logout" disabled>Out of Stock</button>
+          <button disabled>Out of Stock</button>
         )}
       </div>
       <button onClick={handleFavorite} className="fave-button">❤️</button>

@@ -18,12 +18,22 @@ function FavoritesContainer({ favorites, subtractFavorite, currentUser  }) {
          </div>
     })    
 
-    return (
+    const toRender = currentUser ? 
+         (
         <div className="favorites-container">
-            <h2 className="favorites-heading">Favorites</h2>
-            {allFavorites}
+          <h2 className="favorites-heading">Favorites</h2>
+          {allFavorites}
         </div>
-    )
+        ) 
+        : 
+        (
+            <div >
+                
+            </div> 
+        ) 
+        return toRender
+
+  
 }
 
 export default FavoritesContainer;

@@ -33,7 +33,7 @@ code {
   background-color: #f5b461;
   border-radius: 5px;
   margin-right: 8px;
-  box-shadow: 5px 8px 2px #ec524b;;
+  box-shadow: 5px 8px 2px #ec524b;
 }
 
 .pickup-tile {
@@ -52,16 +52,23 @@ code {
   grid-area: favorites-container;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   text-align: center;
   background-color: #9ad3bc;
   border-radius: 5px;
   margin-left: 8px;
   height: 2000px;
-  box-shadow: 5px 8px 2px #ec524b;;
+  box-shadow: 5px 8px 2px #ec524b;
+
+  grid-template-areas:
+      "fave-header fave-header"
+      "tile tile";
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
 }
 
 .fave-tile {
+  grid-area: tile;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   padding: 10px;
@@ -109,6 +116,8 @@ code {
 
  .fave-button {
    margin: 5px;
+   /* background-color: #f0f0f0; */
+   /* border-radius: 3px; */
  }
 
  .login {
@@ -125,7 +134,7 @@ code {
   text-align: center;
   background-color: #9ad3bc;
   border-radius: 5px;
-  box-shadow: 5px 8px 2px #ec524b;;
+  box-shadow: 5px 8px 2px #ec524b;
  }
 
  .past-order {
@@ -137,7 +146,27 @@ code {
 
  .cancel-res-btn {
    margin: 7px;
+   display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  cursor: pointer;
+  padding: 6px 12px;
+  border: 0.5px solid #018dc4;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font: normal 15px/'Quicksand', sans-serif;
+  color: #f3eac2;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #ec524b;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
  }
+
+ .cancel-res-btn:hover {
+  box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.2) ;
+}
 
  .welcome-div {
   text-align: center;
@@ -147,7 +176,7 @@ code {
  }
 
  .food-img {
-   width: 160px;
+   height: 100px;
    border-radius: 5px;
    box-shadow: 5px 4px 2px #888888;
  }
@@ -158,6 +187,8 @@ code {
 
  .favorites-heading {
   font-family: 'Pacifico', cursive;
+  grid-area: fave-header;
+  font-size: 40px;
  }
 
 
@@ -206,8 +237,6 @@ code {
 }
 
 
-
-
 .logout {
   display: inline-block;
   -webkit-box-sizing: content-box;
@@ -220,12 +249,73 @@ code {
   -webkit-border-radius: 5px;
   border-radius: 5px;
   font: normal 15px/'Quicksand', sans-serif;
-  color: #69650c;
+  color: #f3eac2;
   -o-text-overflow: clip;
   text-overflow: clip;
-  background: #dbdbdb;
+  background: #ec524b;
   -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
   /* text-shadow: 0 0 4px rgba(0,0,0,0.3); */
-  -webkit-text-stroke: 0.35px black;
+  /* -webkit-text-stroke: 0.15px black; */
+}
+
+
+.logout:hover {
+  box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.2) ;
+}
+
+
+.login-btn {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 8px 15px;
+  border: 0.5px solid #018dc4;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font: normal 15px/'Quicksand', sans-serif;
+  color: #f3eac2;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #ec524b;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  /* text-shadow: 0 0 4px rgba(0,0,0,0.3); */
+  /* -webkit-text-stroke: 0.15px black; */
+}
+
+.login-btn:hover {
+  box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.2) ;
+}
+
+
+.signup-btn {
+  display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  padding: 8px 15px;
+  border: 0.5px solid #018dc4;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  font: normal 15px/'Quicksand', sans-serif;
+  color: #f3eac2;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: #ec524b;
+  -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) ;
+  /* text-shadow: 0 0 4px rgba(0,0,0,0.3); */
+  /* -webkit-text-stroke: 0.15px black; */
+}
+
+.signup-btn:hover {
+  box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.2) ;
 }

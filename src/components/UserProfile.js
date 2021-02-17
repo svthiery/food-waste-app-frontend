@@ -38,10 +38,17 @@ function UserProfile({ currentUser,  pickupsState, setPickupHistory, handleDelet
     return (
         <div className="welcome-div">
             <h1>Welcome, {currentUser.username}!</h1>
-            <h4>Here are your past orders:</h4>
-            <div className="past-orders-div">
-                {mappedPickupsToUser}
+            {mappedPickupsToUser.length > 0 ?
+            <div>
+                <h4>Here are your past orders:</h4>
+                <div className="past-orders-div">
+                    {mappedPickupsToUser}
+                </div>
             </div>
+            :  
+            <h4>You have no past orders!</h4>
+            }
+    
         </div>
     )
 }

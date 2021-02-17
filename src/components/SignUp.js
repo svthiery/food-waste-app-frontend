@@ -41,7 +41,7 @@ function SignUp() {
         onChange={handleChange}
       />
 
-      <input type="submit" value="Signup" />
+      <input className="signup-btn" type="submit" value="Signup" />
     </form>
   );
 }
