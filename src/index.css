@@ -176,7 +176,7 @@ code {
  }
 
  .food-img {
-   height: 100px;
+   width: 140px;
    border-radius: 5px;
    box-shadow: 5px 4px 2px #888888;
  }
