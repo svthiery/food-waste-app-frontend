@@ -60,14 +60,14 @@ const history = useHistory();
       <div>
         {available ? (
           <button
+            className="logout"
             onClick={handleAddItem}
-            style={{ color: "green" }}
           >
             {" "}
             Reserve Item
           </button>
         ) : (
-          <button disabled>Out of Stock</button>
+          <button className="logout" disabled>Out of Stock</button>
         )}
       </div>
       <button onClick={handleFavorite} className="fave-button">❤️</button>

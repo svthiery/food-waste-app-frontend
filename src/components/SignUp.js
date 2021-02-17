@@ -21,7 +21,7 @@ function SignUp() {
   const { username, password } = formData;
 
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <form onSubmit={handleSubmit} autoComplete="off" className="login">
       <h1>Signup</h1>
 
       <label>Username</label>

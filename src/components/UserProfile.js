@@ -29,15 +29,15 @@ function UserProfile({ currentUser,  pickupsState, setPickupHistory, handleDelet
                 <h3>{pickup.item}</h3>
                 <p>${pickup.price}</p>
                 <img src={pickup.image} alt={pickup.item} className="food-img"/>
-                <button onClick={() => onDeletePickup(pickup.id)}>Delete Reservation</button>
+                <button onClick={() => onDeletePickup(pickup.id)} className="cancel-res-btn">Cancel Reservation</button>
             </div>
         )
     })
     
     
     return (
-        <div>
-            <h1>Welcome {currentUser.username}</h1>
+        <div className="welcome-div">
+            <h1>Welcome, {currentUser.username}!</h1>
             <h4>Here are your past orders:</h4>
             <div className="past-orders-div">
                 {mappedPickupsToUser}
