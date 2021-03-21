@@ -1,9 +1,14 @@
+
 # Polenta to go Around
 
-A website designed to fight food waste by linking users with restaraunts seeking to sell discounted food that would otherwise be discarded. Users are also able to favorite restaraunts for improved search capability. Built with React on the frontend and Ruby on Rails on the backend.
+Web application designed to fight food waste by pairing users with local restaurants who have surplus inventory.
 
 Requires [Polenta To Go Around backend](https://github.com/svthiery/food-waste-app-backend).
 
-To use, after starting api server, run:
+Built in collaboration with [Jacob Marthaller](https://github.com/jmarthaller).
 
-`npm install && npm start`
+-- Created with Ruby on Rails backend with MVC web framework used as an API, and React frontend with custom CSS styling
+
+-- App users can browse all food pickup opportunities, search by food name, or filter by cuisine
+
+-- Users can reserve food items, add restaurants to a Favorites list, view past orders, and cancel pending orders, with DOM manipulation on frontend and persistence to PostgreSQL database in Ruby on Rails backend
